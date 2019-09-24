@@ -11,13 +11,16 @@ public class Calculator {
         String a = expression[0];
         String op1 = expression[1];
         String b = expression[2];
-        String op2 = expression[3];
-        String c = expression[4];
 
-        double result1 = calc(a, op1, b);
-        double result2 = calc(Double.toString(result1), op2, c);
+        double result = calc(a, op1, b);
 
-        return Double.toString(result2);
+        if (expression.length == 5) {
+            String op2 = expression[3];
+            String c = expression[4];
+            result = calc(Double.toString(result), op2, c);
+        }
+
+        return Double.toString(result);
     }
 
     double calc(String stra, String op, String strb) {
