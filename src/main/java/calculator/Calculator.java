@@ -21,11 +21,11 @@ public class Calculator {
             case "*":            
 			case "/":            
                 result = calc(b, op2, c);
-				result = calc(a, op1, String.valueOf(result));
+				result = calc(a, op1, Double.toString(result));
                 break;
 		    case "+":            
 			case "-":            
-			    result = calc(String.valueOf(result), op2, c);
+			    result = calc(Double.toString(result), op2, c);
 				break;
             default:
             }
