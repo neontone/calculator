@@ -13,11 +13,22 @@ public class Calculator {
         String b = expression[2];
 
         double result = calc(a, op1, b);
-
         if (expression.length == 5) {
-            String op2 = expression[3];
+            String op2 = expression[3];			
             String c = expression[4];
-            result = calc(Double.toString(result), op2, c);
+			
+			switch (op2) {
+            case "*":            
+			case "/":            
+                result = calc(b, op2, c);
+				result = calc(a, op1, String.valueOf(result));
+                break;
+		    case "+":            
+			case "-":            
+			    result = calc(String.valueOf(result), op2, c);
+				break;
+            default:
+            }
         }
 
         return Double.toString(result);
